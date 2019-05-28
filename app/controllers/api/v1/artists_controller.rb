@@ -3,16 +3,19 @@ module Api
     class ArtistsController < ApplicationController
       before_action :set_artist, only: [:show, :update, :destroy]
 
+      # GET /artists
       def index
         @artists = Artist.all
 
         render json: @artists
       end
-
+      
+      # GET /artists/1
       def show
         render json: @artist
       end
-
+      
+      # POST /artists
       def create
         @artist = Artist.new(artist_params)
 
